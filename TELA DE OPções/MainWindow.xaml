@@ -1,0 +1,199 @@
+﻿<Window x:Class="TELA_DE_OPções.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TELA_DE_OPções"
+        mc:Ignorable="d"
+        WindowStyle="ToolWindow"
+        Height="520" Width="460"  WindowStartupLocation="CenterScreen"  ResizeMode="NoResize" >
+    <Window.Resources>
+        <Style x:Key="FocusVisual">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Rectangle Margin="2" StrokeDashArray="1 2" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" SnapsToDevicePixels="true" StrokeThickness="1"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        
+     
+        
+        <Style x:Key="BotoesPrincipais" TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>        
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="2"/>
+            <Setter Property="Margin" Value="10"/>            
+            <Setter Property="Width" Value="180"/>            
+            <Setter Property="Height" Value="180"/>            
+            <Setter Property="FontFamily" Value="Arial"/>     
+            <Setter Property="FontSize" Value="15"/>     
+            <Setter Property="FontStretch" Value="Expanded"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" CornerRadius="8" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>                       
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        
+        <Style x:Key="TextoCentroDoBotao" TargetType="{x:Type TextBlock}">
+            <Setter Property="TextWrapping" Value="Wrap"/>
+            <Setter Property="TextAlignment" Value="Center"/>
+            <Setter Property="TextTrimming" Value="None"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="FontFamily" Value="Arial"/>
+            <Setter Property="FontSize" Value="25"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Foreground" Value="White"/>
+        </Style>
+        
+        <Style x:Key="TextoCantoBotao" TargetType="{x:Type TextBlock}">
+            <Setter Property="TextWrapping" Value="NoWrap"/>
+            <Setter Property="TextTrimming" Value="None"/>
+            <Setter Property="HorizontalAlignment" Value="Right"/>
+            <Setter Property="VerticalAlignment" Value="Bottom"/>
+            <Setter Property="FontFamily" Value="Arial"/>
+            <Setter Property="FontSize" Value="10"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Margin" Value="-5"/>
+        </Style>
+
+        <Style x:Key="GridStyle1" TargetType="{x:Type Grid}">
+            <Setter Property="Width" Value="160"/>
+            <Setter Property="Height" Value="160"/>
+        </Style>
+        <Style x:Key="FocusVisual1">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Rectangle Margin="2" StrokeDashArray="1 2" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" SnapsToDevicePixels="true" StrokeThickness="1"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="ButtonStyle1" TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual1}"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="2"/>
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="Width" Value="180"/>
+            <Setter Property="Height" Value="180"/>
+            <Setter Property="FontFamily" Value="Arial"/>
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="FontStretch" Value="Expanded"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="8" SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+     
+    </Window.Resources>
+    <DockPanel  LastChildFill="True">        
+            <DockPanel.Background>
+            <ImageBrush ImageSource="imagens/fundonfce.jpg" Stretch="UniformToFill" TileMode="FlipXY"/>
+            </DockPanel.Background>   
+        <!-- Grid Principal -->
+        <Grid >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="20"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="20"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="80"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="10"/>
+            </Grid.RowDefinitions>
+            <Label Content="SELECIONE UMA OPÇÃO" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="8" Margin="10,5,10,5" FontSize="30" FontWeight="Bold" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Border  Grid.Row="1" Grid.Column="1" CornerRadius="5" Background="#BFFFFFFF"  DockPanel.Dock="top" >
+                <WrapPanel VerticalAlignment="Center" HorizontalAlignment="Center" >
+                    <Button Style="{DynamicResource BotoesPrincipais}" Background="#FFF3522E">
+                        <Grid Style="{DynamicResource GridStyle1}" >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="40"/>
+                            </Grid.RowDefinitions>
+                            <Image Grid.ColumnSpan="3" Grid.RowSpan="2" Source="/imagens2/sair2.png" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <TextBlock Style="{DynamicResource TextoCentroDoBotao}" Grid.Row="2" Grid.ColumnSpan="3" Text="Voltar" />
+                            <TextBlock Style="{DynamicResource TextoCantoBotao}" Grid.Row="3" Grid.Column="3" Text="ESC" />                            
+                        </Grid>
+                    </Button>
+                    <Button Style="{DynamicResource ButtonStyle1}" Background="#FF0D6EFD">
+                        <Grid Style="{DynamicResource GridStyle1}" >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="40"/>
+                            </Grid.RowDefinitions>
+                            <Image Grid.ColumnSpan="3" Grid.RowSpan="2" Source="/imagens2/impressora.png" Margin="10"/>
+                            <TextBlock Style="{DynamicResource TextoCentroDoBotao}" Grid.Row="2" Grid.ColumnSpan="3" Text="Imprimir" />
+                            <TextBlock Style="{DynamicResource TextoCantoBotao}" Grid.Row="3" Grid.Column="3" Text="F1" />
+                        </Grid>
+                    </Button>
+                    <Button Style="{DynamicResource BotoesPrincipais}" Background="#FFFFC300">
+                        <Grid Style="{DynamicResource GridStyle1}" >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="40"/>
+                            </Grid.RowDefinitions>
+                            <Image Grid.ColumnSpan="3" Grid.RowSpan="2" Source="/imagens2/emial2.png" Margin="10"/>
+                            <TextBlock Style="{DynamicResource TextoCentroDoBotao}" Grid.Row="2" Grid.ColumnSpan="3" Text="Email" />
+                            <TextBlock Style="{DynamicResource TextoCantoBotao}" Grid.Row="3" Grid.Column="3" Text="F2" />
+                        </Grid>
+                    </Button>
+                    <Button Style="{DynamicResource BotoesPrincipais}" Background="ForestGreen">
+                        <Grid Style="{DynamicResource GridStyle1}" >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="40"/>
+                            </Grid.RowDefinitions>
+                            <Image Grid.ColumnSpan="3" Grid.RowSpan="2" Source="/imagens2/whatsapp.png" Margin="10"/>
+                            <TextBlock Style="{DynamicResource TextoCentroDoBotao}" Grid.Row="2" Grid.ColumnSpan="3" Text="Whatsapp" />
+                            <TextBlock Style="{DynamicResource TextoCantoBotao}" Grid.Row="3" Grid.Column="3" Text="F3" />
+                        </Grid>
+                    </Button>
+                </WrapPanel>
+            </Border>
+        </Grid>
+    </DockPanel>
+</Window>

@@ -1,0 +1,69 @@
+﻿<UserControl x:Class="TELA_DE_OPções.BotaoPesquisar"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:TELA_DE_OPções"
+             mc:Ignorable="d" 
+             d:DesignHeight="100" d:DesignWidth="300"
+             DataContext="{Binding RelativeSource={RelativeSource Self}}">
+    <UserControl.Resources>
+
+        <Style x:Key="TextoCentroDoBotao" TargetType="{x:Type TextBlock}">
+            <Setter Property="TextWrapping" Value="Wrap"/>
+            <Setter Property="TextAlignment" Value="Center"/>
+            <Setter Property="TextTrimming" Value="None"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="FontFamily" Value="Arial"/>
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Foreground" Value="{Binding CorPrincipal}"/>
+        </Style>
+
+        <Style x:Key="TextoCantoBotao" TargetType="{x:Type TextBlock}">
+            <Setter Property="TextWrapping" Value="NoWrap"/>
+            <Setter Property="TextTrimming" Value="None"/>
+            <Setter Property="HorizontalAlignment" Value="Right"/>
+            <Setter Property="VerticalAlignment" Value="Bottom"/>
+            <Setter Property="FontFamily" Value="Arial"/>
+            <Setter Property="FontSize" Value="9"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Foreground" Value="{Binding CorPrincipal}"/>
+
+        </Style>
+
+    </UserControl.Resources>
+    <Button Name="button" Click="button_Click">
+        <Button.Template>
+            <ControlTemplate TargetType="{x:Type Button}">
+                <Border Name="buttonBorder" CornerRadius="8" Background="{Binding CorPrincipal}"  >
+                    <Grid Margin="5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width=".6*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Image  x:Name="ImagemBotao" Source="{Binding NormalImage}" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="-5 5 5 5"/>
+
+                        <Border x:Name="SegundaBorda" Grid.Column="1" CornerRadius="0 5 5 0" Background="{Binding CorSecundaria}"   Margin="-5"/>                        
+
+                        <TextBlock Name="textoPrincipal" Grid.Column="1"  Text="{Binding TextoPrincipal}" Style="{DynamicResource TextoCentroDoBotao}"/>
+                        <TextBlock Name="textoSecundario" Grid.Column="1"  Text="{Binding TextoSecundario}" Style="{DynamicResource TextoCantoBotao}"/>
+                    </Grid>
+                </Border>
+
+                <ControlTemplate.Triggers>
+                    <Trigger Property="IsMouseOver" Value="true">                     
+                        <Setter Property="Background" TargetName="SegundaBorda" Value="{Binding CorPrincipal}" />                                        
+                        <Setter Property="Foreground" TargetName="textoPrincipal" Value="{Binding CorSecundaria}" />
+                        <Setter Property="Foreground" TargetName="textoSecundario" Value="{Binding CorSecundaria}" />                        
+                    </Trigger>
+                    <Trigger Property="IsPressed" Value="true">
+                        <Setter Property="Opacity" TargetName="buttonBorder" Value="0.8" />
+                    </Trigger>
+                </ControlTemplate.Triggers>
+            </ControlTemplate>
+        </Button.Template>
+    </Button>
+</UserControl>

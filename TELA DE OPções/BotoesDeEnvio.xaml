@@ -1,0 +1,13 @@
+﻿<Window x:Class="TELA_DE_OPções.BotoesDeEnvio"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TELA_DE_OPções"
+        mc:Ignorable="d"
+        Title="BotoesDeEnvio" Height="400" Width="400">
+    <StackPanel Background="White">
+        <local:BotaoPesquisar x:Name="botao" NormalImage ="/imagens2/impressora.png" TextoPrincipal="IMPRIMIR" TextoSecundario="F1" CorPrincipal="#0275d8" CorSecundaria="White" Height="70" Width="200"/>            
+        <local:TextBoxPadrao Margin="10" Titulo="Nome do cliente"/>
+    </StackPanel>
+</Window>

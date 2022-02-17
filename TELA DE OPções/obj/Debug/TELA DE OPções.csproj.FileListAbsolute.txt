@@ -1,0 +1,61 @@
+E:\4-PROJETOS\C#\TELA DE OPções\TELA DE OPções\bin\Debug\TELA DE OPções.exe.config
+E:\4-PROJETOS\C#\TELA DE OPções\TELA DE OPções\bin\Debug\TELA DE OPções.exe
+E:\4-PROJETOS\C#\TELA DE OPções\TELA DE OPções\bin\Debug\TELA DE OPções.pdb
+E:\4-PROJETOS\C#\TELA DE OPções\TELA DE OPções\obj\Debug\TELA DE OPções.csproj.SuggestedBindingRedirects.cache
+E:\4-PROJETOS\C#\TELA DE OPções\TELA DE OPções\obj\Debug\MainWindow.g.cs
+E:\4-PROJETOS\C#\TELA DE OPções\TELA DE OPções\obj\Debug\App.g.cs
+E:\4-PROJETOS\C#\TELA DE OPções\TELA DE OPções\obj\Debug\TELA DE OPções_MarkupCompile.cache
+E:\4-PROJETOS\C#\TELA DE OPções\TELA DE OPções\obj\Debug\TELA DE OPções_MarkupCompile.lref
+E:\4-PROJETOS\C#\TELA DE OPções\TELA DE OPções\obj\Debug\MainWindow.baml
+E:\4-PROJETOS\C#\TELA DE OPções\TELA DE OPções\obj\Debug\TELA DE OPções.g.resources
+E:\4-PROJETOS\C#\TELA DE OPções\TELA DE OPções\obj\Debug\TELA_DE_OPções.Properties.Resources.resources
+E:\4-PROJETOS\C#\TELA DE OPções\TELA DE OPções\obj\Debug\TELA DE OPções.csproj.GenerateResource.cache
+E:\4-PROJETOS\C#\TELA DE OPções\TELA DE OPções\obj\Debug\TELA DE OPções.csproj.CoreCompileInputs.cache
+E:\4-PROJETOS\C#\TELA DE OPções\TELA DE OPções\obj\Debug\TELA DE OPções.exe
+E:\4-PROJETOS\C#\TELA DE OPções\TELA DE OPções\obj\Debug\TELA DE OPções.pdb
+E:\4-PROJETOS\C#\TELA DE OPções - Copia\TELA DE OPções\obj\Debug\TELA DE OPções.csproj.AssemblyReference.cache
+E:\4-PROJETOS\C#\TELA DE OPções - Copia\TELA DE OPções\obj\Debug\TELA DE OPções.csproj.SuggestedBindingRedirects.cache
+E:\4-PROJETOS\C#\TELA DE OPções - Copia\TELA DE OPções\obj\Debug\App.g.cs
+E:\4-PROJETOS\C#\TELA DE OPções - Copia\TELA DE OPções\obj\Debug\TELA DE OPções_MarkupCompile.cache
+E:\4-PROJETOS\C#\TELA DE OPções - Copia\TELA DE OPções\obj\Debug\TELA DE OPções.exe
+E:\4-PROJETOS\C#\TELA DE OPções - Copia\TELA DE OPções\obj\Debug\TELA DE OPções.pdb
+E:\4-PROJETOS\C#\TELA DE OPções - Copia\TELA DE OPções\bin\Debug\TELA DE OPções.exe.config
+E:\4-PROJETOS\C#\TELA DE OPções - Copia\TELA DE OPções\bin\Debug\TELA DE OPções.exe
+E:\4-PROJETOS\C#\TELA DE OPções - Copia\TELA DE OPções\bin\Debug\TELA DE OPções.pdb
+E:\4-PROJETOS\C#\TELA DE OPções - Copia\TELA DE OPções\obj\Debug\MainWindow.g.cs
+E:\4-PROJETOS\C#\TELA DE OPções - Copia\TELA DE OPções\obj\Debug\TELA DE OPções_MarkupCompile.lref
+E:\4-PROJETOS\C#\TELA DE OPções - Copia\TELA DE OPções\obj\Debug\MainWindow.baml
+E:\4-PROJETOS\C#\TELA DE OPções - Copia\TELA DE OPções\obj\Debug\TELA DE OPções.g.resources
+E:\4-PROJETOS\C#\TELA DE OPções - Copia\TELA DE OPções\obj\Debug\TELA_DE_OPções.Properties.Resources.resources
+E:\4-PROJETOS\C#\TELA DE OPções - Copia\TELA DE OPções\obj\Debug\TELA DE OPções.csproj.GenerateResource.cache
+E:\4-PROJETOS\C#\TELA DE OPções - Copia\TELA DE OPções\obj\Debug\TELA DE OPções.csproj.CoreCompileInputs.cache
+C:\Davy\Projetos\C#\telaDeOpcoesTeste\TELA DE OPções\bin\Debug\TELA DE OPções.exe.config
+C:\Davy\Projetos\C#\telaDeOpcoesTeste\TELA DE OPções\bin\Debug\TELA DE OPções.exe
+C:\Davy\Projetos\C#\telaDeOpcoesTeste\TELA DE OPções\bin\Debug\TELA DE OPções.pdb
+C:\Davy\Projetos\C#\telaDeOpcoesTeste\TELA DE OPções\obj\Debug\TELA DE OPções.csproj.SuggestedBindingRedirects.cache
+C:\Davy\Projetos\C#\telaDeOpcoesTeste\TELA DE OPções\obj\Debug\MainWindow.g.cs
+C:\Davy\Projetos\C#\telaDeOpcoesTeste\TELA DE OPções\obj\Debug\App.g.cs
+C:\Davy\Projetos\C#\telaDeOpcoesTeste\TELA DE OPções\obj\Debug\TELA DE OPções_MarkupCompile.cache
+C:\Davy\Projetos\C#\telaDeOpcoesTeste\TELA DE OPções\obj\Debug\TELA DE OPções_MarkupCompile.lref
+C:\Davy\Projetos\C#\telaDeOpcoesTeste\TELA DE OPções\obj\Debug\MainWindow.baml
+C:\Davy\Projetos\C#\telaDeOpcoesTeste\TELA DE OPções\obj\Debug\TELA DE OPções.g.resources
+C:\Davy\Projetos\C#\telaDeOpcoesTeste\TELA DE OPções\obj\Debug\TELA_DE_OPções.Properties.Resources.resources
+C:\Davy\Projetos\C#\telaDeOpcoesTeste\TELA DE OPções\obj\Debug\TELA DE OPções.csproj.GenerateResource.cache
+C:\Davy\Projetos\C#\telaDeOpcoesTeste\TELA DE OPções\obj\Debug\TELA DE OPções.csproj.CoreCompileInputs.cache
+C:\Davy\Projetos\C#\telaDeOpcoesTeste\TELA DE OPções\obj\Debug\TELA DE OPções.exe
+C:\Davy\Projetos\C#\telaDeOpcoesTeste\TELA DE OPções\obj\Debug\TELA DE OPções.pdb
+C:\Davy\Projetos\C#\telaDeOpcoesTeste\TELA DE OPções\obj\Debug\BotaoPesquisar.g.cs
+C:\Davy\Projetos\C#\telaDeOpcoesTeste\TELA DE OPções\obj\Debug\BotoesDeEnvio.g.cs
+C:\Davy\Projetos\C#\telaDeOpcoesTeste\TELA DE OPções\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Davy\Projetos\C#\telaDeOpcoesTeste\TELA DE OPções\obj\Debug\BotaoPesquisar.baml
+C:\Davy\Projetos\C#\telaDeOpcoesTeste\TELA DE OPções\obj\Debug\BotoesDeEnvio.baml
+C:\Davy\Projetos\C#\telaDeOpcoesTeste\TELA DE OPções\obj\Debug\TELA DE OPções.csproj.AssemblyReference.cache
+E:\4-PROJETOS\C#\TELA DE OPções\TELA DE OPções\obj\Debug\BotaoPesquisar.g.cs
+E:\4-PROJETOS\C#\TELA DE OPções\TELA DE OPções\obj\Debug\BotoesDeEnvio.g.cs
+E:\4-PROJETOS\C#\TELA DE OPções\TELA DE OPções\obj\Debug\GeneratedInternalTypeHelper.g.cs
+E:\4-PROJETOS\C#\TELA DE OPções\TELA DE OPções\obj\Debug\BotaoPesquisar.baml
+E:\4-PROJETOS\C#\TELA DE OPções\TELA DE OPções\obj\Debug\BotoesDeEnvio.baml
+E:\4-PROJETOS\C#\TELA DE OPções\TELA DE OPções\obj\Debug\TELA DE OPções_Content.g.cs
+E:\4-PROJETOS\C#\TELA DE OPções\TELA DE OPções\obj\Debug\TextBoxPadrao.g.cs
+E:\4-PROJETOS\C#\TELA DE OPções\TELA DE OPções\obj\Debug\TextBoxPadrao.baml
+E:\4-PROJETOS\C#\TELA DE OPções\TELA DE OPções\obj\Debug\TELA DE OPções.csproj.AssemblyReference.cache

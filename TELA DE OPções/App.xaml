@@ -1,0 +1,9 @@
+﻿<Application x:Class="TELA_DE_OPções.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:TELA_DE_OPções"
+             StartupUri="BotoesDeEnvio.xaml">
+    <Application.Resources>
+         
+    </Application.Resources>
+</Application>
