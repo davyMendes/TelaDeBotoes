@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:TELA_DE_OPções"
              mc:Ignorable="d" 
              d:DesignHeight="60" d:DesignWidth="220"    
-             DataContext="{Binding RelativeSource={RelativeSource Self}}">
+             DataContext="{Binding RelativeSource={RelativeSource Self}}" Loaded="UserControl_Loaded">
     <UserControl.Resources>
         <SolidColorBrush x:Key="CorPrimaria" Color="DimGray"/>
         <SolidColorBrush x:Key="CorSecundaria" Color="#0275d8"/>
@@ -14,79 +14,19 @@
         <Style x:Key="TextBoxStyle" TargetType="{x:Type TextBox}">
             <Setter Property="FontFamily" Value="Arial"/>
             <Setter Property="FontSize" Value="18"/>
+        </Style>   
+        <Style x:Key="TextBlockCampoObrigatorio" TargetType="{x:Type TextBlock}">
+            <Setter Property="TextWrapping" Value="NoWrap"/>
+            <Setter Property="TextTrimming" Value="None"/>
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding CampoObrigatorio}" Value="True">
+                    <Setter Property="Visibility" Value="Visible"/>
+                </DataTrigger>
+                <DataTrigger Binding="{Binding CampoObrigatorio}" Value="False">
+                    <Setter Property="Visibility" Value="Collapsed"/>
+                </DataTrigger>
+            </Style.Triggers>
         </Style>
-        
-        <!--<Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate>
-                        <Grid >
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width=".1*" />
-                                <ColumnDefinition Width="*" />
-                            </Grid.ColumnDefinitions>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height=".3*"/>
-                                <RowDefinition Height="*"/>
-                            </Grid.RowDefinitions>
-                            <Border x:Name="bdText"  CornerRadius="5" Grid.ColumnSpan="2" Grid.RowSpan="2" BorderThickness="1" BorderBrush="DimGray"/>
-                            <Label x:Name="lbTitulo" Content="{Binding Titulo}" Grid.Row="1" Grid.ColumnSpan="2" Opacity=".5" FontFamily="Arial" FontSize="18" FontWeight="Bold" VerticalContentAlignment="Top"  HorizontalContentAlignment="Left" Margin="0 -5 0 0"  Foreground="DimGray"/>
-                            <TextBox x:Name="tbText" Grid.Row="1" Grid.ColumnSpan="2" Background="Transparent" BorderThickness="0" VerticalAlignment="Center" Margin="2 0" TextChanged="tbText_TextChanged" LostFocus="tbText_LostFocus"/>
-                        </Grid>
-                        
-                        <ControlTemplate.Triggers>
-                            <MultiDataTrigger>
-                                <MultiDataTrigger.Conditions>
-                                    <Condition Binding="{Binding ElementName=tbText, Path=IsFocused}" Value="true"/>
-                                </MultiDataTrigger.Conditions>
-                                <MultiDataTrigger.EnterActions>
-                                    <BeginStoryboard>
-                                        <Storyboard >
-                                          
-                                            <ColorAnimation
-                                 Storyboard.TargetName="bdText"
-                                 Storyboard.TargetProperty="(TextBox.BorderBrush).(SolidColorBrush.Color)"
-                                 To="#0275d8"
-                                 Duration="0:0:0.3"/>
-                                            <ColorAnimation
-                                 Storyboard.TargetName="lbTitulo"
-                                 Storyboard.TargetProperty="(Label.Foreground).(SolidColorBrush.Color)"
-                                 To="#0275d8"
-                                 Duration="0:0:0.3"/>
-                                         
-                                        </Storyboard>
-                                    </BeginStoryboard>
-                                </MultiDataTrigger.EnterActions>
-                            </MultiDataTrigger>
-                            <MultiDataTrigger>
-                                <MultiDataTrigger.Conditions>
-                                    <Condition Binding="{Binding ElementName=tbText, Path=IsFocused}" Value="false"/>
-                                </MultiDataTrigger.Conditions>
-                                <MultiDataTrigger.EnterActions>
-                                    <BeginStoryboard>
-                                        <Storyboard >
-                                            
-                                            <ColorAnimation
-                                            Storyboard.TargetName="bdText"
-                                            Storyboard.TargetProperty="(TextBox.BorderBrush).(SolidColorBrush.Color)"
-                                            To="DimGray"
-                                            Duration="0:0:0.3"
-                                            />
-                                            <ColorAnimation
-                                 Storyboard.TargetName="lbTitulo"
-                                 Storyboard.TargetProperty="(Label.Foreground).(SolidColorBrush.Color)"
-                                 To="DimGray"
-                                 Duration="0:0:0.3"
-                                />
-                                        
-                                        </Storyboard>
-                                    </BeginStoryboard>
-                                </MultiDataTrigger.EnterActions>                                   
-                            </MultiDataTrigger>
-                        </ControlTemplate.Triggers>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>-->
-
     </UserControl.Resources>
     <Grid Height="40">
         <Grid.ColumnDefinitions>
@@ -96,10 +36,10 @@
         <Grid.RowDefinitions>
             <RowDefinition Height=".3*"/>
             <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-        
-        <Border x:Name="bdText"  CornerRadius="5" Grid.ColumnSpan="2" Grid.RowSpan="2" BorderThickness="1" BorderBrush="DimGray"  Style="{DynamicResource Borda}"/>
+        </Grid.RowDefinitions>        
+        <Border x:Name="bdText"  CornerRadius="5" Grid.ColumnSpan="2" Grid.RowSpan="2" BorderThickness="1" BorderBrush="DimGray"/>
         <TextBlock Text="{Binding Titulo}" x:Name="lbTitulo" Grid.Row="1" Grid.ColumnSpan="2" Opacity=".5" FontFamily="Arial" FontSize="18" FontWeight="Bold" VerticalAlignment="Top"  HorizontalAlignment="Left" Margin="5 0 0 0"  Foreground="DimGray" />
+        <TextBlock Style="{DynamicResource TextBlockCampoObrigatorio}" Text="Obrigatório*" x:Name="lbAviso" Grid.Row="0" Grid.RowSpan="2" Grid.ColumnSpan="2"  FontFamily="Arial" FontSize="12" FontWeight="Bold" VerticalAlignment="Top"  HorizontalAlignment="Right" Margin="0 2 5 0"  Foreground="#d9534f" />
         <TextBox x:Name="tbText" Grid.Row="1" Grid.ColumnSpan="2" Background="Transparent" BorderThickness="0" VerticalAlignment="Center" Margin="5"  GotFocus="tbText_GotFocus" LostFocus="tbText_LostFocus" Style="{DynamicResource TextBoxStyle}"/>       
     </Grid>
 </UserControl>

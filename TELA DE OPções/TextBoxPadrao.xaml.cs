@@ -18,44 +18,49 @@ namespace TELA_DE_OPções
 {
     public partial class TextBoxPadrao : UserControl
     {
-
-        public static readonly DependencyProperty TextoPrincipalProperty = DependencyProperty.Register("Titulo", typeof(string), typeof(TextBoxPadrao), new UIPropertyMetadata(null));
-
-        public static readonly DependencyProperty CorPrimariaProperty = DependencyProperty.Register("CorPrincipal", typeof(SolidColorBrush), typeof(TextBoxPadrao), new UIPropertyMetadata(null));
-
-        public static readonly DependencyProperty CorSecundariaProperty = DependencyProperty.Register("CorSecundaria", typeof(SolidColorBrush), typeof(TextBoxPadrao), new UIPropertyMetadata(null));
-
         public string Titulo { get; set; }
-        public SolidColorBrush CorPrincipal { get; set; }
-        public SolidColorBrush CorSecundaria { get; set; }
-        public bool estahLivre { get => String.IsNullOrWhiteSpace(tbText.Text); }
+        public static readonly DependencyProperty TextoPrincipalProperty = DependencyProperty.Register("Titulo", typeof(string), typeof(TextBoxPadrao), new UIPropertyMetadata(null));
+        public bool CampoObrigatorio { get; set; }
+        private bool _obrigatorio;
+        public static readonly DependencyProperty CampoObrigatorioProperty = DependencyProperty.Register("CampoObrigatorio", typeof(bool), typeof(TextBoxPadrao), new UIPropertyMetadata(null));
+        private bool estahLivre { get => String.IsNullOrWhiteSpace(tbText.Text); }
+        private static Duration _duracaoAnimacao = new Duration(TimeSpan.FromMilliseconds(200));
 
         private Storyboard AnimacaoAtiva;
         private Storyboard AnimacaoDesativa;
 
         public TextBoxPadrao()
-        {          
+        {
             InitializeComponent();
             AdicionarAnimacaoAtiva();
             AdicionarAnimacaoDesativa();
-        }      
+        }
         private void tbText_GotFocus(object sender, RoutedEventArgs e)
         {
             AnimacaoAtiva.Begin(lbTitulo);
         }
         private void tbText_LostFocus(object sender, RoutedEventArgs e)
-        {
+        {   
             if (estahLivre)
+            {
                 AnimacaoDesativa.Begin(lbTitulo);
+                if (_obrigatorio)
+                {
+                    lbTitulo.Foreground = Brushes.Red;
+                    bdText.BorderBrush = Brushes.Red;
+                    lbAviso.Visibility = Visibility.Visible;
+                }
+            }
+            else
+                lbAviso.Visibility = Visibility.Collapsed;
         }
 
         private void AdicionarAnimacaoAtiva()
         {
-            var duracao = new Duration(TimeSpan.FromMilliseconds(300));
 
             ThicknessAnimation animacaoReposiciona = new ThicknessAnimation()
             {
-                Duration = duracao,
+                Duration = _duracaoAnimacao,
                 To = new Thickness(5, -8, 0, 0)
             };
 
@@ -65,8 +70,8 @@ namespace TELA_DE_OPções
 
             DoubleAnimation animationAumentaTamanho1 = new DoubleAnimation()
             {
-                Duration = duracao,
-                To = 10
+                Duration = _duracaoAnimacao,
+                To = 12
             };
             Storyboard.SetTargetName(animationAumentaTamanho1, "lbTitulo");
             Storyboard.SetTargetProperty(animationAumentaTamanho1, new PropertyPath(TextBlock.FontSizeProperty));
@@ -74,7 +79,7 @@ namespace TELA_DE_OPções
 
             DoubleAnimation animationAumentaTamanho2 = new DoubleAnimation()
             {
-                Duration = duracao,
+                Duration = _duracaoAnimacao,
                 To = 1
             };
             Storyboard.SetTargetName(animationAumentaTamanho2, "lbTitulo");
@@ -82,7 +87,7 @@ namespace TELA_DE_OPções
 
             ColorAnimation animacaoCor = new ColorAnimation()
             {
-                Duration = duracao,
+                Duration = _duracaoAnimacao,
                 To = Color.FromRgb(2, 117, 216)
             };
 
@@ -91,7 +96,7 @@ namespace TELA_DE_OPções
 
             ColorAnimation animacaoCor2 = new ColorAnimation()
             {
-                Duration = duracao,
+                Duration = _duracaoAnimacao,
                 To = Color.FromRgb(2, 117, 216)
             };
 
@@ -110,11 +115,9 @@ namespace TELA_DE_OPções
         }
         private void AdicionarAnimacaoDesativa()
         {
-            var duracao = new Duration(TimeSpan.FromMilliseconds(300));
-
             ThicknessAnimation animacaoReposiciona = new ThicknessAnimation()
             {
-                Duration = duracao,
+                Duration = _duracaoAnimacao,
                 To = new Thickness(5, 0, 0, 0)
             };
 
@@ -123,7 +126,7 @@ namespace TELA_DE_OPções
 
             DoubleAnimation animationAumentaTamanho1 = new DoubleAnimation()
             {
-                Duration = duracao,
+                Duration = _duracaoAnimacao,
                 To = 18
             };
             Storyboard.SetTargetName(animationAumentaTamanho1, "lbTitulo");
@@ -132,7 +135,7 @@ namespace TELA_DE_OPções
 
             DoubleAnimation animationAumentaTamanho2 = new DoubleAnimation()
             {
-                Duration = duracao,
+                Duration = _duracaoAnimacao,
                 To = 0.5
             };
             Storyboard.SetTargetName(animationAumentaTamanho2, "lbTitulo");
@@ -140,7 +143,7 @@ namespace TELA_DE_OPções
 
             ColorAnimation animacaoCor = new ColorAnimation()
             {
-                Duration = duracao,
+                Duration = _duracaoAnimacao,
                 To = Colors.DimGray
             };
 
@@ -149,7 +152,7 @@ namespace TELA_DE_OPções
 
             ColorAnimation animacaoCor2 = new ColorAnimation()
             {
-                Duration = duracao,
+                Duration = _duracaoAnimacao,
                 To = Colors.DimGray
             };
 
@@ -164,6 +167,11 @@ namespace TELA_DE_OPções
             AnimacaoDesativa.Children.Add(animationAumentaTamanho2);
             AnimacaoDesativa.Children.Add(animacaoCor);
             AnimacaoDesativa.Children.Add(animacaoCor2);
-        }    
+        }
+
+        private void UserControl_Loaded(object sender, RoutedEventArgs e)
+        {
+            _obrigatorio = lbAviso.Visibility == Visibility.Visible;
+        }
     }
 }
