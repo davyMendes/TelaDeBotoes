@@ -8,16 +8,41 @@
              d:DesignHeight="60" d:DesignWidth="220"    
              DataContext="{Binding RelativeSource={RelativeSource Self}}" Loaded="UserControl_Loaded">
     <UserControl.Resources>
-        <SolidColorBrush x:Key="CorPrimaria" Color="DimGray"/>
-        <SolidColorBrush x:Key="CorSecundaria" Color="#0275d8"/>
+        <SolidColorBrush x:Key="CorPrimaria" Color="#0275d8"/>
+        <SolidColorBrush x:Key="CorSecundaria" Color="Gray"/>
+        <SolidColorBrush x:Key="CorAviso" Color="#d9534f"/>   
         
+        <Style x:Key="TextBlockBase" TargetType="{x:Type TextBlock}">
+            <Setter Property="FontFamily" Value="Arial"/>
+            <Setter Property="TextWrapping" Value="NoWrap"/>
+            <Setter Property="TextTrimming" Value="None"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+        </Style>
+
         <Style x:Key="TextBoxStyle" TargetType="{x:Type TextBox}">
             <Setter Property="FontFamily" Value="Arial"/>
             <Setter Property="FontSize" Value="18"/>
-        </Style>   
-        <Style x:Key="TextBlockCampoObrigatorio" TargetType="{x:Type TextBlock}">
-            <Setter Property="TextWrapping" Value="NoWrap"/>
-            <Setter Property="TextTrimming" Value="None"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Margin" Value="5"/>        
+        </Style>
+        
+        <Style x:Key="TextTitulo" TargetType="{x:Type TextBlock}"  BasedOn="{StaticResource TextBlockBase}">
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="VerticalAlignment" Value="top"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="Margin" Value="5 0 0 0"/>
+            <Setter Property="Foreground" Value="{StaticResource CorSecundaria}"/>
+            <Setter Property="Opacity" Value=".5"/>
+        </Style>
+        
+        <Style x:Key="TextBlockCampoObrigatorio" TargetType="{x:Type TextBlock}" BasedOn="{StaticResource TextBlockBase}">   
+            <Setter Property="FontSize" Value="12"/> 
+            <Setter Property="VerticalAlignment" Value="Top"/>
+            <Setter Property="HorizontalAlignment" Value="Right"/>
+            <Setter Property="Margin" Value="0 2 5 0"/>
+            <Setter Property="Foreground" Value="{StaticResource CorAviso}"/>            
             <Style.Triggers>
                 <DataTrigger Binding="{Binding CampoObrigatorio}" Value="True">
                     <Setter Property="Visibility" Value="Visible"/>
@@ -27,6 +52,13 @@
                 </DataTrigger>
             </Style.Triggers>
         </Style>
+
+        <Style x:Key="BordaPrincipal" TargetType="{x:Type Border}">
+            <Setter Property="CornerRadius" Value="5"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="BorderBrush" Value="{StaticResource CorSecundaria}"/>
+        </Style>
+
     </UserControl.Resources>
     <Grid Height="40">
         <Grid.ColumnDefinitions>
@@ -36,10 +68,12 @@
         <Grid.RowDefinitions>
             <RowDefinition Height=".3*"/>
             <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>        
-        <Border x:Name="bdText"  CornerRadius="5" Grid.ColumnSpan="2" Grid.RowSpan="2" BorderThickness="1" BorderBrush="DimGray"/>
-        <TextBlock Text="{Binding Titulo}" x:Name="lbTitulo" Grid.Row="1" Grid.ColumnSpan="2" Opacity=".5" FontFamily="Arial" FontSize="18" FontWeight="Bold" VerticalAlignment="Top"  HorizontalAlignment="Left" Margin="5 0 0 0"  Foreground="DimGray" />
-        <TextBlock Style="{DynamicResource TextBlockCampoObrigatorio}" Text="Obrigatório*" x:Name="lbAviso" Grid.Row="0" Grid.RowSpan="2" Grid.ColumnSpan="2"  FontFamily="Arial" FontSize="12" FontWeight="Bold" VerticalAlignment="Top"  HorizontalAlignment="Right" Margin="0 2 5 0"  Foreground="#d9534f" />
-        <TextBox x:Name="tbText" Grid.Row="1" Grid.ColumnSpan="2" Background="Transparent" BorderThickness="0" VerticalAlignment="Center" Margin="5"  GotFocus="tbText_GotFocus" LostFocus="tbText_LostFocus" Style="{DynamicResource TextBoxStyle}"/>       
+        </Grid.RowDefinitions>
+
+        <Border x:Name="bdText"  Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{DynamicResource BordaPrincipal}"/>
+        <TextBlock x:Name="lbTitulo" Text="{Binding Titulo}"  Grid.Row="1" Grid.ColumnSpan="2" Style="{DynamicResource TextTitulo}" />
+        <TextBlock x:Name="lbAviso"  Text="Obrigatório*" Grid.Row="0" Grid.RowSpan="2" Grid.ColumnSpan="2" Style="{DynamicResource TextBlockCampoObrigatorio}"/>
+        <TextBox x:Name="tbText" Grid.Row="1" Grid.ColumnSpan="2" GotFocus="tbText_GotFocus" LostFocus="tbText_LostFocus" Style="{DynamicResource TextBoxStyle}"/>
+
     </Grid>
 </UserControl>
