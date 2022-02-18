@@ -10,17 +10,12 @@
     <UserControl.Resources>
         <SolidColorBrush x:Key="CorPrimaria" Color="DimGray"/>
         <SolidColorBrush x:Key="CorSecundaria" Color="#0275d8"/>
-        <Style x:Key="Borda" TargetType="Border">
-            <Style.Triggers >
-                <DataTrigger  Binding="{Binding ElementName=cbSample, Path=IsChecked}"  Value="False">
-                    <Setter Property="BorderBrush" Value="{StaticResource CorPrimaria}"/>
-                </DataTrigger>
-                <DataTrigger  Binding="{Binding ElementName=cbSample, Path=IsChecked}"  Value="True" >
-                    <Setter Property="BorderBrush" Value="{StaticResource CorSecundaria}"/>
-                </DataTrigger>
-            </Style.Triggers>
+        
+        <Style x:Key="TextBoxStyle" TargetType="{x:Type TextBox}">
+            <Setter Property="FontFamily" Value="Arial"/>
+            <Setter Property="FontSize" Value="18"/>
         </Style>
-
+        
         <!--<Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate>
@@ -46,12 +41,7 @@
                                 <MultiDataTrigger.EnterActions>
                                     <BeginStoryboard>
                                         <Storyboard >
-                                            <ThicknessAnimation 
-                                    Storyboard.TargetName="lbTitulo"
-                                    Storyboard.TargetProperty="(Label.Margin)"
-                                    To="0 -13 0 0"
-                                    Duration="0:0:0.3"         
-                                    />
+                                          
                                             <ColorAnimation
                                  Storyboard.TargetName="bdText"
                                  Storyboard.TargetProperty="(TextBox.BorderBrush).(SolidColorBrush.Color)"
@@ -62,18 +52,7 @@
                                  Storyboard.TargetProperty="(Label.Foreground).(SolidColorBrush.Color)"
                                  To="#0275d8"
                                  Duration="0:0:0.3"/>
-                                            <DoubleAnimation 
-                                    Storyboard.TargetName="lbTitulo"
-                                    Storyboard.TargetProperty="(Label.FontSize)"
-                                    To="10"
-                                    Duration="0:0:0.3"                             
-                                    />
-                                            <DoubleAnimation 
-                                    Storyboard.TargetName="lbTitulo"
-                                    Storyboard.TargetProperty="(Label.Opacity)"
-                                    To="1"
-                                    Duration="0:0:0.3"                             
-                                    />
+                                         
                                         </Storyboard>
                                     </BeginStoryboard>
                                 </MultiDataTrigger.EnterActions>
@@ -85,12 +64,7 @@
                                 <MultiDataTrigger.EnterActions>
                                     <BeginStoryboard>
                                         <Storyboard >
-                                            <ThicknessAnimation 
-                                    Storyboard.TargetName="lbTitulo"
-                                    Storyboard.TargetProperty="(Label.Margin)"
-                                    To="0 -5 0 0"
-                                    Duration="0:0:0.3"         
-                                    />
+                                            
                                             <ColorAnimation
                                             Storyboard.TargetName="bdText"
                                             Storyboard.TargetProperty="(TextBox.BorderBrush).(SolidColorBrush.Color)"
@@ -103,18 +77,7 @@
                                  To="DimGray"
                                  Duration="0:0:0.3"
                                 />
-                                            <DoubleAnimation 
-                                    Storyboard.TargetName="lbTitulo"
-                                    Storyboard.TargetProperty="(Label.FontSize)"
-                                    To="18"
-                                    Duration="0:0:0.3"                             
-                                    />
-                                            <DoubleAnimation 
-                                    Storyboard.TargetName="lbTitulo"
-                                    Storyboard.TargetProperty="(Label.Opacity)"
-                                    To="0.5"
-                                    Duration="0:0:0.3"                             
-                                    />
+                                        
                                         </Storyboard>
                                     </BeginStoryboard>
                                 </MultiDataTrigger.EnterActions>                                   
@@ -124,19 +87,8 @@
                 </Setter.Value>
             </Setter>-->
 
-        <Style x:Key="TextBoxStyle" TargetType="{x:Type TextBox}">
-            <Setter Property="FontFamily" Value="Arial"/>
-            <Setter Property="FontSize" Value="18"/>
-        </Style>
     </UserControl.Resources>
-    <UserControl.Triggers>
-        <DataTrigger Binding="{Binding estahLivre}" Value="True" >
-            <Setter Property="BorderBrush" Value="{StaticResource CorPrimaria}"/>
-        </DataTrigger>
-    </UserControl.Triggers>
-
-<!--<TextBox Height="35" Style="{StaticResource TextBoxStyle}"/>-->
-    <Grid>
+    <Grid Height="40">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width=".1*" />
             <ColumnDefinition Width="*" />
@@ -145,9 +97,9 @@
             <RowDefinition Height=".3*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <CheckBox Name="cbSample" Content="Hello, world?" Visibility="Hidden"/>
-        <Border x:Name="bdText"  CornerRadius="5" Grid.ColumnSpan="2" Grid.RowSpan="2" BorderThickness="1"  Style="{DynamicResource Borda}"/>
+        
+        <Border x:Name="bdText"  CornerRadius="5" Grid.ColumnSpan="2" Grid.RowSpan="2" BorderThickness="1" BorderBrush="DimGray"  Style="{DynamicResource Borda}"/>
         <TextBlock Text="{Binding Titulo}" x:Name="lbTitulo" Grid.Row="1" Grid.ColumnSpan="2" Opacity=".5" FontFamily="Arial" FontSize="18" FontWeight="Bold" VerticalAlignment="Top"  HorizontalAlignment="Left" Margin="5 0 0 0"  Foreground="DimGray" />
-        <TextBox x:Name="tbText" Grid.Row="1" Grid.ColumnSpan="2" Background="Transparent" BorderThickness="0" VerticalAlignment="Center" Margin="5" TextChanged="tbText_TextChanged" LostFocus="tbText_LostFocus"/>       
+        <TextBox x:Name="tbText" Grid.Row="1" Grid.ColumnSpan="2" Background="Transparent" BorderThickness="0" VerticalAlignment="Center" Margin="5"  GotFocus="tbText_GotFocus" LostFocus="tbText_LostFocus" Style="{DynamicResource TextBoxStyle}"/>       
     </Grid>
 </UserControl>
