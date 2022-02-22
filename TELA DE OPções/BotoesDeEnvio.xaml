@@ -5,10 +5,31 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TELA_DE_OPções"
         mc:Ignorable="d"
-        Title="BotoesDeEnvio" Height="400" Width="400">
-    <StackPanel Background="White">
-        <local:BotaoPesquisar x:Name="botao" NormalImage ="/imagens2/impressora.png" TextoPrincipal="IMPRIMIR" TextoSecundario="F1" CorPrincipal="#0275d8" CorSecundaria="White" Height="70" Width="200"/>
-        <local:TextBoxPadrao Margin="10" Titulo="Nome"  CampoObrigatorio="True"/>
-        <local:TextBoxPadrao Margin="10" Titulo="Sobrenome" CampoObrigatorio="False"/>
-    </StackPanel>
+        Title="BotoesDeEnvio" Height="400" Width="800" Loaded="Window_Loaded">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/DataGridPadrao.xaml"/>
+            </ResourceDictionary.MergedDictionaries>        
+        </ResourceDictionary>
+    </Window.Resources>
+    <DockPanel Background="White">
+        <local:BotaoPesquisar DockPanel.Dock="Top" x:Name="botao" NormalImage ="/imagens2/impressora.png" TextoPrincipal="IMPRIMIR" TextoSecundario="F1" CorPrincipal="#0275d8" CorSecundaria="White" Height="70" Width="200"/>
+        <local:TextBoxPadrao DockPanel.Dock="Top" Margin="10" Titulo="Nome"  CampoObrigatorio="True"/>
+        <local:TextBoxPadrao DockPanel.Dock="Top" Margin="10" Titulo="Sobrenome" CampoObrigatorio="False"/>
+
+
+        <DataGrid Template="{DynamicResource DataGridTemplate1}" x:Name="DatagridPrincipal" Margin="5"  ColumnHeaderStyle="{DynamicResource EstiloDoCabecalho}" Style="{DynamicResource EstiloDataGridPadrao}" CellStyle="{DynamicResource EstiloDataGridCellPadrao}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Cod" Binding="{Binding Path=Codigo}" IsReadOnly="True" Width="2.0*">
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Nome" Binding="{Binding Path=Nome}" IsReadOnly="True" Width="4.3*">
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Cidade" Binding="{Binding Path=Cidade}" IsReadOnly="True" Width="1.0*">
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="UF" Binding="{Binding Path=UF}" IsReadOnly="True" Width="0.5*">
+                </DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </DockPanel>
 </Window>

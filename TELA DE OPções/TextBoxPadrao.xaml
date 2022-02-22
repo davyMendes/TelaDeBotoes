@@ -73,7 +73,7 @@
         <Border x:Name="bdText"  Grid.ColumnSpan="2" Grid.RowSpan="2" Style="{DynamicResource BordaPrincipal}"/>
         <TextBlock x:Name="lbTitulo" Text="{Binding Titulo}"  Grid.Row="1" Grid.ColumnSpan="2" Style="{DynamicResource TextTitulo}" />
         <TextBlock x:Name="lbAviso"  Text="Obrigatório*" Grid.Row="0" Grid.RowSpan="2" Grid.ColumnSpan="2" Style="{DynamicResource TextBlockCampoObrigatorio}"/>
-        <TextBox x:Name="tbText" Grid.Row="1" Grid.ColumnSpan="2" GotFocus="tbText_GotFocus" LostFocus="tbText_LostFocus" Style="{DynamicResource TextBoxStyle}"/>
+        <TextBox x:Name="tbText" Text="{Binding Texto}" Grid.Row="1" Grid.ColumnSpan="2" GotFocus="tbText_GotFocus" LostFocus="tbText_LostFocus" Style="{DynamicResource TextBoxStyle}"/>
 
     </Grid>
 </UserControl>
