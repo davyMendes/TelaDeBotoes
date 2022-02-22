@@ -103,16 +103,15 @@
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type DataGridColumnHeader}">
                     <Grid>
-                        <Border BorderBrush="{TemplateBinding BorderBrush}"
-                                BorderThickness="{TemplateBinding BorderThickness}"
+                        <Border BorderBrush="{StaticResource Secundaria }"
+                                BorderThickness="0.8"
                                 Background="{TemplateBinding Background}"
-                                Padding="{TemplateBinding Padding}" 
-                                CornerRadius="5 5 0 0"
+                                Padding="{TemplateBinding Padding}"                                                         
                                 >
                             <Grid>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition />
-                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>                             
                                 </Grid.ColumnDefinitions>
                                 <ContentPresenter
                                     HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
@@ -123,36 +122,22 @@
                                 <StackPanel Grid.Column="1"
                                             Orientation="Horizontal"
                                             Margin="5 0 0 0">
-                                    <Path x:Name="SortUpIcon"
-                                          Data="{DynamicResource SortUp}"
-                                          Height="{TemplateBinding FontSize}"
-                                               Stroke="Transparent"
-                                          Fill="Transparent"                        
-                                          Stretch="Uniform"
-                                          Width="20"
-                                          />
-                                    <Path x:Name="SortDownIcon"
-                                          Data="{DynamicResource SortDown}"
-                                          Height="{TemplateBinding FontSize}"                                     
-                                          Stroke="Transparent"
-                                          Fill="Transparent"
-                                          Stretch="Uniform"                           
-                                          Width="20"
-                                          />
+                                    <Image x:Name="SortAsc" Source="/imagens/sortAtoZ60.png" Visibility="Collapsed" Width="30"/>
+                                    <Image x:Name="SortDesc" Source="/imagens/sortZtoA60.png" Visibility="Collapsed" Width="30"/>                                                  
                                 </StackPanel>
                             </Grid>
                         </Border>
                         <Thumb x:Name="PART_LeftHeaderGripper" HorizontalAlignment="Left" Style="{StaticResource ColumnHeaderGripperStyle}"/>
-                        <Thumb x:Name="PART_RightHeaderGripper" HorizontalAlignment="Right" Style="{StaticResource ColumnHeaderGripperStyle}"/>
+                        <Thumb x:Name="PART_RightHeaderGripper" HorizontalAlignment="Right" Style="{StaticResource ColumnHeaderGripperStyle}"/>                       
                     </Grid>
                     <ControlTemplate.Triggers>
                         <Trigger Property="SortDirection" Value="Ascending">
-                            <Setter TargetName="SortDownIcon" Property="Stroke" Value="{StaticResource Branco}"/>
-                            <Setter TargetName="SortDownIcon" Property="Fill" Value="{StaticResource Branco}"/>
+                            <Setter TargetName="SortAsc" Property="Visibility" Value="Visible"/>
+                            <Setter TargetName="SortDesc" Property="Visibility" Value="Collapsed"/>
                         </Trigger>
                         <Trigger Property="SortDirection" Value="Descending">
-                            <Setter TargetName="SortUpIcon" Property="Stroke" Value="{StaticResource Branco}"/>
-                            <Setter TargetName="SortUpIcon" Property="Fill" Value="{StaticResource Branco}"/>
+                            <Setter TargetName="SortAsc" Property="Visibility" Value="Collapsed"/>
+                            <Setter TargetName="SortDesc" Property="Visibility" Value="Visible"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -163,6 +148,8 @@
     <Style x:Key="EstiloDataGridCellPadrao" TargetType="{x:Type DataGridCell}">
         <Setter Property="Foreground" Value="{Binding Foreground,RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=DataGrid}}"/>
         <Setter Property="Margin" Value="0"/>
+        <Setter Property="FontFamily" Value="Arial"/>
+        <Setter Property="MinHeight" Value="30"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
         <Setter Property="Template">
             <Setter.Value>
@@ -174,7 +161,6 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
-
     </Style>
 
     <Style x:Key="EstiloDataGridPadrao" TargetType="{x:Type DataGrid}">
@@ -189,6 +175,7 @@
         <Setter Property="CanUserAddRows" Value="False"/>
         <Setter Property="CanUserDeleteRows" Value="False"/>
         <Setter Property="AutoGenerateColumns" Value="False"/>
+        <Setter Property="BorderThickness" Value="0"/>
 
         <Style.Triggers>
             <Trigger Property="IsFocused" Value="True">
@@ -197,6 +184,6 @@
             </Trigger>
         </Style.Triggers>
     </Style>
-    
-    
+
+
 </ResourceDictionary>

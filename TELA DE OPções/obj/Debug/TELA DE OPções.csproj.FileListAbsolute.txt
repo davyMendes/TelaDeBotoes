@@ -108,3 +108,6 @@ E:\4-PROJETOS\C#\TelaDeBotoes2\TELA DE OPções\obj\Debug\TELA DE OPções.cspro
 E:\4-PROJETOS\C#\TelaDeBotoes2\TELA DE OPções\obj\Debug\TELA DE OPções.csproj.CoreCompileInputs.cache
 C:\Davy\Projetos\C#\TelaDeBotoes3\TELA DE OPções\obj\Debug\DataGridPadrao.baml
 C:\Davy\Projetos\C#\TelaDeBotoes3\TELA DE OPções\obj\Debug\Icons.baml
+E:\4-PROJETOS\C#\TelaDeBotoes2\TELA DE OPções\obj\Debug\TELA DE OPções.csproj.AssemblyReference.cache
+E:\4-PROJETOS\C#\TelaDeBotoes2\TELA DE OPções\obj\Debug\DataGridPadrao.baml
+E:\4-PROJETOS\C#\TelaDeBotoes2\TELA DE OPções\obj\Debug\Icons.baml

@@ -142,6 +142,10 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Resource Include="imagens\sortAtoZ.png" />
+    <Resource Include="imagens\sortZtoA.png" />
+    <Resource Include="imagens\sortAtoZ60.png" />
+    <Resource Include="imagens\sortZtoA60.png" />
     <Content Include="SVG\impressora.svg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
