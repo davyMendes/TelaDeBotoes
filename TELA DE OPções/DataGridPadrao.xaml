@@ -6,8 +6,8 @@
     </ResourceDictionary.MergedDictionaries>
 
     <SolidColorBrush x:Key="Principal" Color="#02abd8"/>
-    <SolidColorBrush x:Key="Principal2" Color="#02abd8"/>
     <SolidColorBrush x:Key="Secundaria" Color="#5bc0de"/>
+    <SolidColorBrush x:Key="Secundaria2" Color="#9bd8eb"/>
     <SolidColorBrush x:Key="Sucesso" Color="#5cb85c"/>
     <SolidColorBrush x:Key="Atencao" Color="#f0ad4e"/>
     <SolidColorBrush x:Key="Alerta" Color="#d9534f"/>
@@ -103,7 +103,8 @@
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type DataGridColumnHeader}">
                     <Grid>
-                        <Border BorderBrush="{StaticResource Secundaria }"
+                        <Border x:Name="BordaColuna"
+                            BorderBrush="{StaticResource Secundaria }"
                                 BorderThickness="0.8"
                                 Background="{TemplateBinding Background}"
                                 Padding="{TemplateBinding Padding}"                                                         
@@ -125,7 +126,7 @@
                                     <Image x:Name="SortAsc" Source="/imagens/sortAtoZ60.png" Visibility="Collapsed" Width="30"/>
                                     <Image x:Name="SortDesc" Source="/imagens/sortZtoA60.png" Visibility="Collapsed" Width="30"/>                                                  
                                 </StackPanel>
-                            </Grid>
+                            </Grid>                         
                         </Border>
                         <Thumb x:Name="PART_LeftHeaderGripper" HorizontalAlignment="Left" Style="{StaticResource ColumnHeaderGripperStyle}"/>
                         <Thumb x:Name="PART_RightHeaderGripper" HorizontalAlignment="Right" Style="{StaticResource ColumnHeaderGripperStyle}"/>                       
@@ -139,6 +140,30 @@
                             <Setter TargetName="SortAsc" Property="Visibility" Value="Collapsed"/>
                             <Setter TargetName="SortDesc" Property="Visibility" Value="Visible"/>
                         </Trigger>
+                        <!--<Trigger Property="IsMouseOver" Value="True">
+                            <Trigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation
+                                            Storyboard.TargetName="BordaColuna"
+                                            Storyboard.TargetProperty="(Border.BorderBrush).(SolidColorBrush.Color)"
+                                            Duration="0:0:0.3"
+                                            To="#02abd8"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.EnterActions>
+                            <Trigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation
+                                            Storyboard.TargetName="BordaColuna"
+                                            Storyboard.TargetProperty="(Border.BorderBrush).(SolidColorBrush.Color)"
+                                            Duration="0:0:0.3"
+                                            To="White"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.ExitActions>
+                        </Trigger>-->                       
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
