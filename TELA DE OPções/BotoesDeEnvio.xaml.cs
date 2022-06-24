@@ -28,16 +28,17 @@ namespace TELA_DE_OPções
         {
             var lista = new List<Cliente>() 
             { 
-                new Cliente("000000000001","a","Itapema","UF"),
-                new Cliente("000000000002","b","Itapema","UF"),
-                new Cliente("000000000003","v","Itapema","UF"),
-                new Cliente("000000000004","d","Itapema","UF"),
-                new Cliente("000000000005","z","Itapema","UF"),
-                new Cliente("000000000006","t","Itapema","UF"),
-                new Cliente("000000000007","g","Itapema","UF"),
-                new Cliente("000000000008","a","Itapema","UF")   
+                new Cliente("000000000001","TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT","Itapema","UF"),
+                new Cliente("000000000002","TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT","Itapema","UF"),
+                new Cliente("000000000003","TTTTTTTTTTTTTTTTTTTTTTTTT","Itapema","UF"),
+                new Cliente("000000000004","TTTTTTTTTTT","Itapema","UF"),
+                new Cliente("000000000005","TTTTTT","Itapema","UF"),
+                new Cliente("000000000006","TTTTTTTTTTTTTTTTT","Itapema","UF"),
+                new Cliente("000000000007","TTTTTTTTTTTTTTTT","Itapema","UF"),
+                new Cliente("000000000008","TTTTTTTTTTTTTTTTTTTTTTT","Itapema","UF")   
             };
             DatagridPrincipal.ItemsSource = lista;
+         
         }
     }
 }

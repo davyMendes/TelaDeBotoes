@@ -19,7 +19,7 @@
         <local:TextBoxPadrao DockPanel.Dock="Top" Margin="10" Titulo="Sobrenome" CampoObrigatorio="False"/>
 
 
-        <DataGrid Template="{DynamicResource DataGridTemplate1}" x:Name="DatagridPrincipal" Margin="5"  ColumnHeaderStyle="{DynamicResource EstiloDoCabecalho}" Style="{DynamicResource EstiloDataGridPadrao}" CellStyle="{DynamicResource EstiloDataGridCellPadrao}">
+        <DataGrid RowStyle="{DynamicResource EstiloDaLinha}" Template="{DynamicResource DataGridTemplate1}" x:Name="DatagridPrincipal" Margin="5"  ColumnHeaderStyle="{DynamicResource EstiloDoCabecalho}" Style="{DynamicResource EstiloDataGridPadrao}" CellStyle="{DynamicResource EstiloDataGridCellPadrao}">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Cod" Binding="{Binding Path=Codigo}" IsReadOnly="True" Width="2.0*">
                 </DataGridTextColumn>

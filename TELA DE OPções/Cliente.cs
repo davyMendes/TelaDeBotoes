@@ -10,10 +10,10 @@ namespace TELA_DE_OPções
     {
         public Cliente(string codigo, string nome, string cidade, string uF)
         {
-            Codigo = codigo;
-            Nome = nome;
-            Cidade = cidade;
-            UF = uF;
+            Codigo = codigo.ToUpper();
+            Nome = nome.ToUpper();
+            Cidade = cidade.ToUpper();
+            UF = uF.ToUpper();
         }
 
         public string Codigo { get; set; }

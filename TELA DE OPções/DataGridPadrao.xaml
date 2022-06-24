@@ -5,16 +5,34 @@
         <ResourceDictionary Source="/icons.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
-    <SolidColorBrush x:Key="Principal" Color="#02abd8"/>
+    <SolidColorBrush x:Key="Principal" Color="#0275d8"/>
     <SolidColorBrush x:Key="Secundaria" Color="#5bc0de"/>
-    <SolidColorBrush x:Key="Secundaria2" Color="#9bd8eb"/>
+    <SolidColorBrush x:Key="Terciaria" Color="#dcedff"/>
     <SolidColorBrush x:Key="Sucesso" Color="#5cb85c"/>
     <SolidColorBrush x:Key="Atencao" Color="#f0ad4e"/>
     <SolidColorBrush x:Key="Alerta" Color="#d9534f"/>
+    <SolidColorBrush x:Key="Cinza" Color="LightGray"/>
     <SolidColorBrush x:Key="Preto" Color="#292b2c"/>
     <SolidColorBrush x:Key="Branco" Color="#f7f7f7"/>
-    <SolidColorBrush x:Key="BrancoDesativado" Color="Gray"/>
-    <SolidColorBrush x:Key="Branco75" Color="#BFF7F7F7"/>
+
+
+    <Style x:Key="EstiloDataGridPadrao" TargetType="{x:Type DataGrid}">  
+        <Setter Property="AlternationCount" Value="2"/>
+        <Setter Property="HeadersVisibility" Value="Column"/>
+        <Setter Property="CanUserAddRows" Value="False"/>
+        <Setter Property="CanUserDeleteRows" Value="False"/>
+        <Setter Property="AutoGenerateColumns" Value="False"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="VerticalGridLinesBrush" Value="{StaticResource Branco}"/>
+        <Setter Property="HorizontalGridLinesBrush" Value="{StaticResource Branco}"/>
+
+        <Style.Triggers>
+            <Trigger Property="IsFocused" Value="True">
+                <Setter Property="BorderBrush" Value="{StaticResource Alerta}"/>
+                <Setter Property="BorderThickness" Value="2"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
 
     <Style x:Key="{ComponentResourceKey ResourceId=DataGridSelectAllButtonStyle, TypeInTargetAssembly={x:Type DataGrid}}" TargetType="{x:Type Button}">
         <Setter Property="Template">
@@ -104,7 +122,7 @@
                 <ControlTemplate TargetType="{x:Type DataGridColumnHeader}">
                     <Grid>
                         <Border x:Name="BordaColuna"
-                            BorderBrush="{StaticResource Secundaria }"
+                            BorderBrush="{StaticResource Branco }"
                                 BorderThickness="0.8"
                                 Background="{TemplateBinding Background}"
                                 Padding="{TemplateBinding Padding}"                                                         
@@ -112,7 +130,7 @@
                             <Grid>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition />
-                                    <ColumnDefinition Width="Auto"/>                             
+                                    <ColumnDefinition Width="Auto"/>
                                 </Grid.ColumnDefinitions>
                                 <ContentPresenter
                                     HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
@@ -124,12 +142,12 @@
                                             Orientation="Horizontal"
                                             Margin="5 0 0 0">
                                     <Image x:Name="SortAsc" Source="/imagens/sortAtoZ60.png" Visibility="Collapsed" Width="30"/>
-                                    <Image x:Name="SortDesc" Source="/imagens/sortZtoA60.png" Visibility="Collapsed" Width="30"/>                                                  
+                                    <Image x:Name="SortDesc" Source="/imagens/sortZtoA60.png" Visibility="Collapsed" Width="30"/>
                                 </StackPanel>
-                            </Grid>                         
+                            </Grid>
                         </Border>
                         <Thumb x:Name="PART_LeftHeaderGripper" HorizontalAlignment="Left" Style="{StaticResource ColumnHeaderGripperStyle}"/>
-                        <Thumb x:Name="PART_RightHeaderGripper" HorizontalAlignment="Right" Style="{StaticResource ColumnHeaderGripperStyle}"/>                       
+                        <Thumb x:Name="PART_RightHeaderGripper" HorizontalAlignment="Right" Style="{StaticResource ColumnHeaderGripperStyle}"/>
                     </Grid>
                     <ControlTemplate.Triggers>
                         <Trigger Property="SortDirection" Value="Ascending">
@@ -140,30 +158,6 @@
                             <Setter TargetName="SortAsc" Property="Visibility" Value="Collapsed"/>
                             <Setter TargetName="SortDesc" Property="Visibility" Value="Visible"/>
                         </Trigger>
-                        <!--<Trigger Property="IsMouseOver" Value="True">
-                            <Trigger.EnterActions>
-                                <BeginStoryboard>
-                                    <Storyboard>
-                                        <ColorAnimation
-                                            Storyboard.TargetName="BordaColuna"
-                                            Storyboard.TargetProperty="(Border.BorderBrush).(SolidColorBrush.Color)"
-                                            Duration="0:0:0.3"
-                                            To="#02abd8"/>
-                                    </Storyboard>
-                                </BeginStoryboard>
-                            </Trigger.EnterActions>
-                            <Trigger.ExitActions>
-                                <BeginStoryboard>
-                                    <Storyboard>
-                                        <ColorAnimation
-                                            Storyboard.TargetName="BordaColuna"
-                                            Storyboard.TargetProperty="(Border.BorderBrush).(SolidColorBrush.Color)"
-                                            Duration="0:0:0.3"
-                                            To="White"/>
-                                    </Storyboard>
-                                </BeginStoryboard>
-                            </Trigger.ExitActions>
-                        </Trigger>-->                       
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
@@ -171,44 +165,78 @@
     </Style>
 
     <Style x:Key="EstiloDataGridCellPadrao" TargetType="{x:Type DataGridCell}">
-        <Setter Property="Foreground" Value="{Binding Foreground,RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=DataGrid}}"/>
-        <Setter Property="Margin" Value="0"/>
+        <Setter Property="Foreground" Value="{Binding Foreground,RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=DataGrid}}"/>   
         <Setter Property="FontFamily" Value="Arial"/>
+        <Setter Property="FontSize" Value="18"/>
+        <Setter Property="FontWeight" Value="SemiBold"/> 
+        <Setter Property="Foreground"  Value="Black"/> 
         <Setter Property="MinHeight" Value="30"/>
+        <Setter Property="Padding" Value="0 15"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="BorderThickness"  Value="0"/>
+        
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="DataGridCell">
-                    <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+                    <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness }">
                         <ContentPresenter VerticalAlignment="{TemplateBinding VerticalContentAlignment}" 
                          HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}"/>
                     </Border>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
-    </Style>
-
-    <Style x:Key="EstiloDataGridPadrao" TargetType="{x:Type DataGrid}">
-        <Setter Property="FontFamily" Value="Arial"/>
-        <Setter Property="FontSize" Value="18"/>
-        <Setter Property="FontWeight" Value="Bold"/>
-        <Setter Property="MinColumnWidth" Value="10"/>
-        <Setter Property="AlternationCount" Value="2"/>
-        <Setter Property="RowBackground" Value="LightGray"/>
-        <Setter Property="AlternatingRowBackground" Value="WhiteSmoke"/>
-        <Setter Property="HeadersVisibility" Value="Column"/>
-        <Setter Property="CanUserAddRows" Value="False"/>
-        <Setter Property="CanUserDeleteRows" Value="False"/>
-        <Setter Property="AutoGenerateColumns" Value="False"/>
-        <Setter Property="BorderThickness" Value="0"/>
-
         <Style.Triggers>
-            <Trigger Property="IsFocused" Value="True">
-                <Setter Property="BorderBrush" Value="{StaticResource Alerta}"/>
-                <Setter Property="BorderThickness" Value="2"/>
-            </Trigger>
+            
+        <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="IsSelected" Value="True"/>
+                </MultiTrigger.Conditions>
+                <Setter Property="Background" Value="{StaticResource Cinza}" />               
+            </MultiTrigger>        
         </Style.Triggers>
     </Style>
 
+    <Style x:Key="EstiloDaLinha" TargetType="{x:Type DataGridRow}">
+        <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.WindowBrushKey}}"/>
+        <Setter Property="SnapsToDevicePixels" Value="true"/>
+        <Setter Property="Validation.ErrorTemplate" Value="{x:Null}"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="ValidationErrorTemplate">
+            <Setter.Value>
+                <ControlTemplate>
+                    <TextBlock Foreground="Red" Margin="2,0,0,0" Text="!" VerticalAlignment="Center"/>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type DataGridRow}">
+                    <Border x:Name="DGR_Border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="True">
+                        <SelectiveScrollingGrid>
+                            <SelectiveScrollingGrid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </SelectiveScrollingGrid.ColumnDefinitions>
+                            <SelectiveScrollingGrid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="Auto"/>
+                            </SelectiveScrollingGrid.RowDefinitions>
+                            <DataGridCellsPresenter Grid.Column="1" ItemsPanel="{TemplateBinding ItemsPanel}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                            <DataGridDetailsPresenter Grid.Column="1" Grid.Row="1" SelectiveScrollingGrid.SelectiveScrollingOrientation="{Binding AreRowDetailsFrozen, ConverterParameter={x:Static SelectiveScrollingOrientation.Vertical}, Converter={x:Static DataGrid.RowDetailsScrollingConverter}, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}" Visibility="{TemplateBinding DetailsVisibility}"/>
+                            <DataGridRowHeader Grid.RowSpan="2" SelectiveScrollingGrid.SelectiveScrollingOrientation="Vertical" Visibility="{Binding HeadersVisibility, ConverterParameter={x:Static DataGridHeadersVisibility.Row}, Converter={x:Static DataGrid.HeadersVisibilityConverter}, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}"/>
+                        </SelectiveScrollingGrid>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsNewItem" Value="True">
+                <Setter Property="Margin" Value="{Binding NewItemMargin, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}"/>
+            </Trigger>
+            <Trigger Property="ItemsControl.AlternationIndex" Value="1">
+                <Setter Property="Background" Value="{StaticResource Terciaria}"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
 
 </ResourceDictionary>
